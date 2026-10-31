@@ -371,6 +371,11 @@ pub(crate) fn build_provider_from_request(
                 "Oh My Pi providers must be added from the Oh My Pi provider page".to_string(),
             ));
         }
+        AppType::Workbuddy => {
+            return Err(AppError::InvalidInput(
+                "WorkBuddy providers must be added from the WorkBuddy provider page".to_string(),
+            ));
+        }
     };
 
     // Build usage script configuration if provided

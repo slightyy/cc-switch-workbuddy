@@ -6617,6 +6617,7 @@ impl ProviderService {
                     AppType::Mcode => crate::mcode_config::remove_provider(id)?,
                     AppType::Kimi => crate::kimi_config::remove_provider(id)?,
                     AppType::Dsh => crate::dsh_config::remove_provider(id)?,
+                    AppType::Workbuddy => crate::workbuddy_config::remove_provider(id)?,
                     _ => {}
                 }
             }
@@ -6747,6 +6748,7 @@ impl ProviderService {
             AppType::Mcode => crate::mcode_config::remove_provider(id)?,
             AppType::Kimi => crate::kimi_config::remove_provider(id)?,
             AppType::Dsh => crate::dsh_config::remove_provider(id)?,
+            AppType::Workbuddy => crate::workbuddy_config::remove_provider(id)?,
             _ => {
                 return Err(AppError::Message(format!(
                     "App {} does not support remove from live config",
@@ -7312,6 +7314,7 @@ impl ProviderService {
             | AppType::Kimi
             | AppType::Dsh
             | AppType::Omp
+            | AppType::Workbuddy
             | AppType::Agy => Ok(String::new()),
         }
     }
@@ -7335,6 +7338,7 @@ impl ProviderService {
             | AppType::Kimi
             | AppType::Dsh
             | AppType::Omp
+            | AppType::Workbuddy
             | AppType::Agy => Ok(String::new()),
         }
     }
@@ -8114,6 +8118,9 @@ impl ProviderService {
             AppType::Omp => {
                 crate::omp_config::validate_provider(&provider.id, &provider.settings_config)?;
             }
+            AppType::Workbuddy => {
+                crate::workbuddy_config::validate_provider(&provider.id, &provider.settings_config)?;
+            }
         }
 
         // Validate and clean UsageScript configuration (common for all app types)
@@ -8362,6 +8369,25 @@ impl ProviderService {
                     .unwrap_or("")
                     .to_string();
 
+                Ok((api_key, base_url))
+            }
+            AppType::Workbuddy => {
+                // WorkBuddy entries keep the endpoint in `url` rather than `baseUrl`.
+                let api_key = provider
+                    .settings_config
+                    .get("apiKey")
+                    .and_then(Value::as_str)
+                    .ok_or_else(|| {
+                        AppError::localized(
+                            "provider.workbuddy.api_key.missing",
+                            "缺少 API Key",
+                            "API key is missing",
+                        )
+                    })?
+                    .to_string();
+                let base_url =
+                    crate::workbuddy_config::provider_base_url(&provider.settings_config)
+                        .unwrap_or_default();
                 Ok((api_key, base_url))
             }
         }

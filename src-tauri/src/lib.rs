@@ -34,6 +34,7 @@ mod mcp;
 pub mod mode;
 mod model_capabilities;
 mod omp_config;
+mod workbuddy_config;
 mod openclaw_config;
 mod opencode_config;
 mod panic_hook;

@@ -29,3 +29,6 @@ copilot-api
 .history
 CODEBUDDY.md
 mainWindow.js
+
+# npm lockfile is intentionally not tracked (this project uses pnpm)
+package-lock.json

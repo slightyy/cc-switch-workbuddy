@@ -613,6 +613,14 @@ export const iconMetadata: Record<string, IconMetadata> = {
     keywords: ["omp", "oh my pi", "oh-my-pi", "pi"],
     defaultColor: "#9b4dff",
   },
+  workbuddy: {
+    name: "workbuddy",
+    displayName: "WorkBuddy",
+    category: "ai-provider",
+    shape: "tile",
+    keywords: ["workbuddy", "work buddy", "tencent", "腾讯", "codebuddy"],
+    defaultColor: "#0f9d76",
+  },
   ollama: {
     name: "ollama",
     displayName: "ollama",

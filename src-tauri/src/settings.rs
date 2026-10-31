@@ -61,6 +61,8 @@ pub struct VisibleApps {
     pub dsh: bool,
     #[serde(default = "default_true")]
     pub agy: bool,
+    #[serde(default = "default_true")]
+    pub workbuddy: bool,
 }
 
 impl Default for VisibleApps {
@@ -80,6 +82,7 @@ impl Default for VisibleApps {
             dsh: true,
             agy: true,
             omp: true,
+            workbuddy: true,
         }
     }
 }
@@ -102,6 +105,7 @@ impl VisibleApps {
             AppType::Dsh => self.dsh,
             AppType::Agy => self.agy,
             AppType::Omp => self.omp,
+            AppType::Workbuddy => self.workbuddy,
         }
     }
 }
@@ -1384,6 +1388,7 @@ pub fn get_current_provider(app_type: &AppType) -> Option<String> {
         AppType::Hermes => settings.current_provider_hermes.clone(),
         AppType::Agy => settings.current_provider_agy.clone(),
         AppType::Pi | AppType::Mcode | AppType::Kimi | AppType::Dsh | AppType::Omp => None,
+        AppType::Workbuddy => None,
     }
 }
 
@@ -1404,6 +1409,7 @@ pub fn set_current_provider(app_type: &AppType, id: Option<&str>) -> Result<(), 
         AppType::Hermes => settings.current_provider_hermes = id_owned.clone(),
         AppType::Agy => settings.current_provider_agy = id_owned.clone(),
         AppType::Pi | AppType::Mcode | AppType::Kimi | AppType::Dsh | AppType::Omp => {}
+        AppType::Workbuddy => {}
     })
 }
 

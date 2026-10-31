@@ -1560,7 +1560,8 @@ function App() {
               activeApp === "mcode" ||
               activeApp === "kimi" ||
               activeApp === "dsh" ||
-              activeApp === "omp"
+              activeApp === "omp" ||
+              activeApp === "workbuddy"
                 ? (provider) => setConfirmAction({ provider, action: "remove" })
                 : undefined
             }

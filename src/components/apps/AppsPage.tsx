@@ -195,7 +195,9 @@ export function AppsPage() {
   };
   // 两组共用一份顺序（拖动后写进设置，侧栏也按它排），每组只是按装没装过滤
   const appOrder = orderAppIds(settings?.appOrder);
-  const orderedRows = appOrder.map((app) => ROW_BY_APP[app]);
+  const orderedRows = appOrder
+    .map((app) => ROW_BY_APP[app])
+    .filter((row): row is NonNullable<typeof row> => Boolean(row));
   const rowStates = orderedRows.map((row) => ({
     row,
     installed: rowInstalled(row),

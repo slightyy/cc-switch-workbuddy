@@ -1,8 +1,14 @@
 <div align="center">
 
-# CC Switch
+# CC Switch <sub>(WorkBuddy fork)</sub>
 
-### The All-in-One Manager for Claude Code, Claude Desktop, Codex, Gemini CLI, Grok Build, OpenCode, OpenClaw, Hermes Agent, Pi, MiniMax Code, Kimi Code & Oh My Pi
+> **This is a personal fork, not the official project.** It adds [WorkBuddy](https://www.workbuddy.cn) (Tencent) as a
+> first-class managed app: provider switching, session token/cost usage import, MCP and Skills sync.
+> See **[docs/WORKBUDDY.md](docs/WORKBUDDY.md)** for what changed and how to rebuild.
+> Upstream: **[farion1231/cc-switch](https://github.com/farion1231/cc-switch)** (MIT). The additions here are released
+> under the same license.
+
+### The All-in-One Manager for Claude Code, Claude Desktop, Codex, Gemini CLI, Grok Build, OpenCode, OpenClaw, Hermes Agent, Pi, MiniMax Code, Kimi Code, Oh My Pi & WorkBuddy
 
 **Switch API providers in one click and manage MCP, Skills, and Prompts in one place — no more hand-editing JSON / TOML / YAML config files.**
 

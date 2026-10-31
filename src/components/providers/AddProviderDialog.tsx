@@ -74,6 +74,7 @@ export function AddProviderDialog({
     appId !== "dsh" &&
     appId !== "kimi" &&
     appId !== "grokbuild" &&
+    appId !== "workbuddy" &&
     appId !== "claude-desktop";
   // 两步：先选预设，再填写（每次打开都从第 1 步开始）
   const [step, setStep] = useState<"pick" | "form">("pick");
@@ -297,7 +298,8 @@ export function AddProviderDialog({
           appId === "mcode" ||
           appId === "kimi" ||
           appId === "dsh" ||
-          appId === "omp") &&
+          appId === "omp" ||
+          appId === "workbuddy") &&
         values.providerKey
       ) {
         providerData.providerKey = values.providerKey;

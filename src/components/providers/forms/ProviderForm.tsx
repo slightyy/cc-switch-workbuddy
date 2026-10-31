@@ -103,6 +103,7 @@ import { ClaudeAccountSelect } from "./ClaudeOfficialSection";
 import { isMac } from "@/lib/platform";
 import { McodeProviderForm } from "./McodeProviderForm";
 import { PiProviderForm } from "./PiProviderForm";
+import { WorkbuddyProviderForm } from "./WorkbuddyProviderForm";
 import { OmoFormFields } from "./OmoFormFields";
 import { parseOmoOtherFieldsObject } from "@/types/omo";
 import type { AppMode } from "@/types/proxy";
@@ -334,6 +335,9 @@ export function ProviderForm(props: ProviderFormProps) {
     return <McodeProviderForm {...props} />;
   if (props.appId === "pi" || props.appId === "omp") {
     return <PiProviderForm {...props} />;
+  }
+  if (props.appId === "workbuddy") {
+    return <WorkbuddyProviderForm {...props} />;
   }
   if (props.appId === "claude-desktop") {
     return <ClaudeDesktopProviderForm {...props} />;

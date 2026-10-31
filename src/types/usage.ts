@@ -232,7 +232,8 @@ export type AppType =
   | "mcode"
   | "kimi"
   | "dsh"
-  | "agy";
+  | "agy"
+  | "workbuddy";
 
 export type AppTypeFilter = "all" | AppType;
 
@@ -248,6 +249,7 @@ export const KNOWN_APP_TYPES: ReadonlyArray<AppType> = [
   "kimi",
   "dsh",
   "agy",
+  "workbuddy",
 ];
 
 /**
@@ -266,6 +268,7 @@ export const CACHE_INCLUSIVE_APP_TYPES: ReadonlySet<string> = new Set([
   "codex",
   "gemini",
   "grokbuild",
+  "workbuddy",
 ]);
 
 // Pi and Oh My Pi sessions can mix Anthropic and OpenAI APIs, but the dashboard

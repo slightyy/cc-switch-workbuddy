@@ -32,6 +32,7 @@ export const APP_IDS: AppId[] = [
   "dsh",
   "agy",
   "omp",
+  "workbuddy",
 ];
 
 export const DEFAULT_VISIBLE_APPS: VisibleApps = {
@@ -49,6 +50,7 @@ export const DEFAULT_VISIBLE_APPS: VisibleApps = {
   dsh: true,
   agy: true,
   omp: true,
+  workbuddy: true,
 };
 
 /**
@@ -88,6 +90,7 @@ export const SKILLS_APP_IDS: AppId[] = [
   "dsh",
   "agy",
   "omp",
+  "workbuddy",
 ];
 
 export type ProxyAppId = Extract<
@@ -137,7 +140,15 @@ export function isStackAppId(appId: string): appId is StackAppId {
 
 export type AdditiveAppId = Extract<
   AppId,
-  "opencode" | "openclaw" | "hermes" | "pi" | "mcode" | "kimi" | "dsh" | "omp"
+  | "opencode"
+  | "openclaw"
+  | "hermes"
+  | "pi"
+  | "mcode"
+  | "kimi"
+  | "dsh"
+  | "omp"
+  | "workbuddy"
 >;
 
 export const ADDITIVE_APP_IDS: AdditiveAppId[] = [
@@ -149,6 +160,7 @@ export const ADDITIVE_APP_IDS: AdditiveAppId[] = [
   "hermes",
   "pi",
   "omp",
+  "workbuddy",
 ];
 
 export function isAdditiveAppId(appId: string): appId is AdditiveAppId {
@@ -192,6 +204,7 @@ export const MCP_APP_IDS: McpAppId[] = [
   "dsh",
   "agy",
   "omp",
+  "workbuddy",
 ];
 
 export function isMcpAppId(appId: string): appId is McpAppId {
@@ -341,6 +354,21 @@ export const APP_ICON_MAP: Record<AppId, AppConfig> = {
       "bg-cyan-500/10 ring-1 ring-cyan-500/20 hover:bg-cyan-500/20 text-cyan-600 dark:text-cyan-400",
     badgeClass:
       "bg-cyan-500/10 text-cyan-700 dark:text-cyan-300 hover:bg-cyan-500/20 border-0 gap-1.5",
+  },
+  workbuddy: {
+    label: "WorkBuddy",
+    icon: (
+      <ProviderIcon
+        icon="workbuddy"
+        name="WorkBuddy"
+        size={14}
+        showFallback={false}
+      />
+    ),
+    activeClass:
+      "bg-emerald-500/10 ring-1 ring-emerald-500/20 hover:bg-emerald-500/20 text-emerald-700 dark:text-emerald-300",
+    badgeClass:
+      "bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 hover:bg-emerald-500/20 border-0 gap-1.5",
   },
 };
 
